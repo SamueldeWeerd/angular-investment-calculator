@@ -1,1 +1,7 @@
-<h1 class="center">Practice Time!</h1>
+<app-header></app-header>
+<app-user-input (calculate)="onCalculateResult()"></app-user-input>
+@if (calculatedResult) {
+    <app-results [annualData]="annualData"></app-results>
+} @else {
+    <app-placeholder></app-placeholder>
+}
