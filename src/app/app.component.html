@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-user-input (calculate)="onCalculateResult()"></app-user-input>
 @if (calculatedResult) {
-    <app-results [annualData]="annualData"></app-results>
+    <app-results></app-results>
 } @else {
     <app-placeholder></app-placeholder>
 }

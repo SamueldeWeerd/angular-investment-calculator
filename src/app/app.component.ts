@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { ResultsComponent } from './results/results.component';
@@ -19,7 +19,7 @@ export class AppComponent {
   private calculationService = inject(CalculationService);
 
   // Declare annualData as an array of AnnualData
-  annualData: AnnualData[] = [];
+  annualData = signal<AnnualData[] | undefined>(undefined);
 
   constructor() {
     // Fetch the annualData from the service once calculations are completed
@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   onCalculateResult() {
-    this.annualData = this.calculationService.getAnnualData;
+    this.annualData = this.calculationService.annualData;
     this.calculatedResult = true;
   }
 

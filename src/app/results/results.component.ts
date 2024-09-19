@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { CalculationService } from '../calculation.service';
 import { AnnualData } from '../annual-data.model';
 import { CalculationData } from './calculation-data.model';
@@ -13,6 +13,14 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class ResultsComponent {
 
-@Input({required: true}) annualData!: AnnualData[];
+  constructor(private calculationService: CalculationService){
+
+  }
+
+get annualData() { 
+  return this.calculationService.annualData
+}
+
+
 
 }
